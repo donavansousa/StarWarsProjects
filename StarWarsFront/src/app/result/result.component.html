@@ -1,0 +1,33 @@
+<!-- TypeHead -->
+<div style="margin-top: 5%" class="container">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Espécie" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" (input)="inputChanged($event.target.value)">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedOption($event.option.value)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.Specie+' ('+option.Planet+')'">
+              {{option.Specie}} ({{option.Planet}}) 
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+
+  <table class="mat-elevation-z8" mat-table [dataSource]="dataSource">
+
+    <!-- Coluna Personagem -->
+    <ng-container matColumnDef="Person">
+      <th mat-header-cell *matHeaderCellDef> Personagem </th>
+      <td mat-cell *matCellDef="let element"> {{element.Person}} </td>
+    </ng-container>
+
+    <!-- Coluna Planeta -->
+    <ng-container matColumnDef="Planet">
+      <th mat-header-cell *matHeaderCellDef> Planeta Natal </th>
+      <td mat-cell *matCellDef="let element"> {{element.Planet}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+

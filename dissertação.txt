@@ -1,0 +1,2 @@
+Na parte do Front-End utilizaria o Angular, pois ele pode ser usado em diversas plataformas.
+Na parte de Back-End utilizaria API .NET REST e banco de dados SQL Server, pois são de fácil implementação, manutenção e fácil conexão com o back-end
